@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		html{
+			font-family: 'Microsoft YaHei',sans-serif;
+			background: transparent; 
+		}
+		* {margin:0; padding:0;}
+		h1, h2, h3, h4, h5, h6, ul, li {list-style-type: none;}
+		a:link {text-decoration: none;}
+		a:visited {text-decoration: none;}
+		a:hover {text-decoration: none;}
+		a:active {text-decoration: none;}
+		#all{
+			display:inline-block;
+			width:400px;
+			height:300px;
+			background:#F0F8FF;
+			border:1px solid #3d3d3d;
+			border-radius:3px;
+		}
+		#all .head{
+			display:inline-block;
+			width: 400px;
+			height:150px;
+			background: #006699;
+			margin-bottom: 10px;
+			border-radius:3px 3px 0 0;
+			background-image:url('logo.png');
+			background-position: center;
+			background-repeat: no-repeat;
+
+		}
+		#all .body{
+			display:inline-block;
+			width:400px;
+		}
+		.user{
+			display:inline-block;
+			width: 360px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.user .img{
+			float: left;
+			width: 80px;
+			height:80px;
+			border:1px solid #ddd;
+			border-radius:5px;
+			background:#fff;
+		}
+		.user .form{
+			float:left;
+			width: 180px;
+			height: 120px;
+			margin-left: 10px;
+		}
+		.user .url{
+			float:right;
+			width: 70px;
+			height: 80px;
+			margin-left:10px;
+			font-size:16px;
+			color:#003399;
+			font-size:12px;
+		}
+		.zhpass-link{	
+			height:32px;
+			float:left;
+			behavior: button;
+			click!:zhpass();
+		}
+		.zhpass-link:hover{color:#0066CC;}
+		.zhuce-link {
+			behavior: button;
+			float:left;
+			margin-top:5px;
+			width: 100%%;
+			height:32px;
+			click!:zhuce();
+		}
+		.zhuce-link:hover{color:#0066CC; }
+		.input {
+			width:182px;
+			height:24px;
+			border-style: solid; 
+			border-color: #FFFFFF
+		}
+		.login-btn{
+			margin-top:10px;
+			behavior: button;
+			width:100%;
+			height:32px;
+			background:#09a3dc;
+			border-radius:3px;
+			text-align:center;
+			line-height: 32px;
+			color:#fff;
+			click!:login();
+		}
+		.login-btn:hover{background:#0996ca;}
+		.panel{
+			width:182px;
+			height:55px;
+			border:1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom:5px;
+		}
+		.close-btn{
+			behavior: button;
+			float:right; width:45px; height:29px; 
+			background:url('control.png') no-repeat 0 0;
+			margin-right:-1px;
+			click!: close();
+		}
+		.minimize-btn{
+			behavior: button;
+			float:right; width:31px; height:29px;
+			background:url('control.png') no-repeat 0 -29px;
+			margin-right:1px;
+			click!: minimize();
+		}
+		.setup-btn{
+			behavior: button;
+			float:right; width:31px; height:29px;
+			background:url('control.png') no-repeat 0 -58px;
+			margin-right:1px;
+			click!: setup();
+		}
+
+		.close-btn:hover{ background:url('control.png') no-repeat -46px 0; }
+		.close-btn:active{ background:url('control.png') no-repeat -90px 0; }
+
+		.minimize-btn:hover{ background:url('control.png') no-repeat -31px -29px; }
+		.minimize-btn:active{ background:url('control.png') no-repeat -62px -29px; }
+
+		.setup-btn:hover{ background:url('control.png') no-repeat -30px -58px; }
+		.setup-btn:active{ background:url('control.png') no-repeat -61px -58px; }
+
+		.disabled { color:#666; }
+
+		#input_user { key-off!:(key-code() == 'TAB') ? $1(#input_pwd):focus = true; }
+		#input_pwd { key-off!:(key-code() == 13) ? $1(.login-btn).click(); }
+	</style>
+</head>
+<body>
+	<div id="all">
+		<div class="head">
+			<div class="close-btn"></div>
+			<div class="minimize-btn"></div>
+			<div class="setup-btn"></div>
+		</div>
+		<div class="body">
+			<ul class="user">
+				<li class="img"><img src="face.png" width="100%" height="100%"></li>
+				<li class="form">
+					<div class="panel">
+						<input class="input"  type="text" name="username" id="input_user" style="border-radius:5px 5px 0 0" />
+						<div style="width:100%;  border-top:1px solid #ccc;"></div>
+						<input class="input"  type="password" name="password" id="input_pwd" style="border-radius:0 0 5px 5px" />
+					</div>
+					<div class="disabled">
+						<input type="checkbox" name="savePassword" id="input_savePwd" />¼Ç×¡ÃÜÂë
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="checkbox" name="autoLogin" id="input_autoLogin" />×Ô¶¯µÇÂ¼
+					</div>
+					<div class="login-btn">µÇ&nbsp;&nbsp;Â¼</div>
+				</li>
+				<li class="url">
+					<div class="zhuce-link">×¢²áÕÊºÅ</div>
+					<div class="zhpass-link">ÕÒ»ØÃÜÂë</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
